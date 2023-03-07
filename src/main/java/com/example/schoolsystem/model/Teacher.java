@@ -1,49 +1,66 @@
 package com.example.schoolsystem.model;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+
 
 @Entity
+@Table(name = "teachers")
 public class Teacher {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id", nullable = false)
     private Long id;
-    private String teachername;
+
+    @Column(name = "name", nullable = false)
+    private String name;
+
+    @Column(name = "course")
     private String course;
+
+    @Column(name = "email")
     private String email;
+
     public Teacher() {
-        super();
+
     }
-    public Teacher(Long id, String teachername, String course, String email) {
+
+    public Teacher(String name, String course, String email) {
         super();
-        this.id=id;
-        this.teachername=teachername;
-        this.course=course;
-        this.email=email;
+        this.name = name;
+        this.course = course;
+        this.email = email;
     }
-    public Long getId(){
+    public Long getId() {
         return id;
     }
-    public void setId(Long id){
-        this.id=id;
+    public void setId(Long id) {
+        this.id = id;
     }
-    public String getTeachername(){
-        return teachername;
+    public String getName() {
+        return name;
     }
-    public void setTeachername(String teachername){
-        this.teachername=teachername;
+    public void setName(String name) {
+        this.name = name;
     }
-    public String getCourse(){
+    public String getCourse() {
         return course;
     }
-    public void setCourse(String course){
-        this.course=course;
+    public void setCourse(String course ) {
+        this.course = course ;
     }
-    public String getEmail(){
+    public String getEmail() {
         return email;
     }
-    public void setEmail(String email){
-        this.email=email;
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    @Override
+    public String toString() {
+        return "Teacher{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", course='" + course + '\'' +
+                ", email='" + email + '\'' +
+                '}';
     }
 }
