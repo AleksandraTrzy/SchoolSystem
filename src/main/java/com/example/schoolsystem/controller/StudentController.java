@@ -20,7 +20,7 @@ public class StudentController {
         super();
         this.studentService = studentService;
     }
-    @GetMapping("/")
+    //@GetMapping("/")
     public String students(Model model, @Param("keyword") String keyword) {
         List<Student> studentList=studentService.studentListAll(keyword);
         model.addAttribute("studentList", studentList);
